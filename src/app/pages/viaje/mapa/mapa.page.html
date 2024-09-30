@@ -1,0 +1,99 @@
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button>
+      </ion-buttons>
+      <ion-title>
+        <img src="assets/logo.png" alt="logo tellevoapp" style="height: 40px" />
+      </ion-title>
+      <ion-buttons slot="end">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <!--* Mapa -->
+    <div id="mapa"></div>
+
+    <!--* Botón flotante de busqueda -->
+    <ion-fab vertical="top" horizontal="center" slot="fixed">
+      <ion-fab-button id="open-search">
+        <ion-icon name="search"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+    <!--* Buscador flotante con animación -->
+    <div id="search-container" class="hidden">
+      <!--* Campo combinado para punto de origen y destino -->
+      <ion-item>
+        <ion-input type="text" id="originInput" placeholder="Punto de Origen"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="text" id="destinationInput" placeholder="Punto de Destino"></ion-input>
+        <ion-button id="searchButton" slot="end">
+          <ion-icon name="search"></ion-icon>
+        </ion-button>
+        <ion-button id="btnCloseSearch" slot="end">
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-button>
+      </ion-item>
+
+      <!--* Lista de sugerencias para origen -->
+      <div id="autocomplete-suggestions-origin" class="suggestions hidden">
+        <ion-list>
+          <ion-item
+            *ngFor="let suggestion of originSuggestions"
+            (click)="selectSuggestion(suggestion, 'origin')"
+          >
+            {{ suggestion.display_name }}
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <!--* Lista de sugerencias para destino -->
+      <div id="autocomplete-suggestions-destination" class="suggestions hidden">
+        <ion-list>
+          <ion-item
+            *ngFor="let suggestion of destinationSuggestions"
+            (click)="selectSuggestion(suggestion, 'destination')"
+          >
+            {{ suggestion.display_name }}
+          </ion-item>
+        </ion-list>
+      </div>
+    </div>
+
+    <!--* Contenedor para el código QR y confirmación dentro de una tarjeta -->
+    <ion-card id="qr-container" class="hidden">
+      <ion-card-header>
+        <ion-card-title>Escanea el código QR para ver el código</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <img id="qr-code" src="" alt="Código QR" />
+        <ion-button (click)="startScan()">Iniciar Escaneo</ion-button>
+        <video #videoContainer style="width: 100%; height: 100%; object-fit: cover;" autoplay></video>
+      </ion-card-content>
+    </ion-card>
+
+    <!--* Contenedor para la cantidad de personas dentro de una tarjeta -->
+  <ion-card id="cantidadPersonas" class="hidden">
+    <ion-card-header>
+      <ion-card-title>Indica la cantidad de personas</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-item>
+        <ion-input
+          type="number"
+          id="cantidadPersonasInput"
+          min="1"
+          placeholder="Introduce la cantidad de personas">
+        </ion-input>
+      </ion-item>
+      <ion-button expand="full" (click)="updateCantidadPersonas()">Confirmar Cantidad</ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  </ion-content>

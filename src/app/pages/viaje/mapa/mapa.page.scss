@@ -1,0 +1,116 @@
+#search-container {
+  position: absolute;
+  z-index: 997; //* Cuadro de búsqueda por encima del mapa
+  top: 2%; //* Posicionado debajo del botón flotante
+  left: 10px;
+  right: 10px;
+  background: white;
+  padding: 10px;
+  box-shadow: 0px 2px 5px #0000004d;
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#qr-container {
+  position: absolute;
+  z-index: 1000; //* Asegúrate de que esté por encima de todos los demás elementos
+  top: 50%; //* Centrado verticalmente
+  left: 50%; //* Centrado horizontalmente
+  transform: translate(-50%, -50%); //* Ajuste de posición para centrar completamente
+  opacity: 1; //* Asegúrate de que sea visible
+  width: 80%; //* Ancho aumentado para hacer el contenedor más grande
+  max-width: 400px; //* Máximo ancho para limitar el tamaño en pantallas más grandes
+  padding: 20px; //* Aumenta el padding para que el contenido tenga más espacio
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#cantidadPersonas {
+  position: absolute;
+  z-index: 1000; //* Asegúrate de que esté por encima de todos los demás elementos
+  top: 50%; //* Centrado verticalmente
+  left: 50%; //* Centrado horizontalmente
+  transform: translate(-50%, -50%); //* Ajuste de posición para centrar completamente
+  opacity: 1; //* Asegúrate de que sea visible */
+  width: 80%; //* Ancho aumentado para hacer el contenedor más grande
+  max-width: 400px; //* Máximo ancho para limitar el tamaño en pantallas más grandes
+  padding: 20px; //* Aumenta el padding para que el contenido tenga más espacio
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#search-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#search-container.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+ion-fab {
+  z-index: 998; //* Botón de búsqueda por encima del mapa
+  top: 2%;
+  left: 75%;
+}
+
+#open-search.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#open-search.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#autocomplete-suggestions-origin {
+  position: absolute;
+  z-index: 999; //* Sugerencias por encima del mapa y otros elementos
+  top: calc(100% + 5px); //* Justo debajo del cuadro de búsqueda
+  left: 0;
+  right: 0;
+  background: white;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+#autocomplete-suggestions-destination {
+  position: absolute;
+  z-index: 999; //* Sugerencias por encima del mapa y otros elementos
+  top: calc(100% + 5px); //* Justo debajo del cuadro de búsqueda
+  left: 0;
+  right: 0;
+  background: white;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+
+ion-item {
+  cursor: pointer;
+  &:hover {
+    background-color: #f0f0f0;
+  }
+}
+
+#mapa {
+  height: 100%; //* Por defecto, ocupa toda la pantalla
+  width: 100%;
+  position: relative;
+  transition: height 0.3s ease; //* Animación suave al cambiar el tamaño
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}

@@ -1,0 +1,53 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content scroll-y="false">
+  <div class="login-container"> <!--* Contenedor principal responsivo -->
+    <ion-card class="login-card">
+      <img alt="Logo" src="assets/logo.png" class="login-logo" /> <!--* Añade una clase para control de estilo -->
+      <ion-card-content [formGroup]="loginForm">
+        <h2 class="login-title">Iniciar sesión</h2>
+        
+        <!--* Email Input -->
+        <ion-item>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input
+            formControlName="email"
+            type="email"
+            placeholder="Correo">
+          </ion-input>
+        </ion-item>
+        
+        <!--* Password Input -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input
+            formControlName="pass"
+            type="password"
+            placeholder="Contraseña">
+          </ion-input>
+        </ion-item>
+        
+        <!--* Ingresar Button -->
+        <div class="ingresarbtn">
+          <ion-button expand="block" shape="round" (click)="login()" id="present-alert">
+            INGRESAR
+          </ion-button>
+        </div>
+        
+        <!--* Registrarse Link -->
+        <div class="center-content">
+          <ion-text>
+            <a class="register-link" (click)="register()">¿No tienes una cuenta? Registrarse</a>
+          </ion-text>
+        </div>
+        
+        <!--* Forgot Password Link -->
+        <div class="center-content">
+          <ion-text>
+            <a class="forgot-password" (click)="recuperarContrasena()">¿Olvidaste tu contraseña?</a>
+          </ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

@@ -1,0 +1,28 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <ion-list id="inbox-list">
+          <ion-list-header>{{ username }}</ion-list-header>
+          <ion-note>{{ descripcion }}</ion-note>
+
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+            <ion-item 
+              lines="none" 
+              detail="false" 
+              (click)="p.action ? p.action() : null">
+              <ion-icon 
+                aria-hidden="true" 
+                slot="start" 
+                [ios]="p.icono + '-sharp'" 
+                [md]="p.icono + '-sharp'">
+              </ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

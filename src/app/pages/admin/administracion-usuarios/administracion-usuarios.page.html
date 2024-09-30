@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card-usuarios">
+    <ion-card-header>
+      <ion-card-title>Lista de Usuarios</ion-card-title>
+      <ion-item>
+        <ion-label>Filtrar por tipo</ion-label>
+        <ion-select (ionChange)="filtrarUsuarios($event.detail.value)" value="todos">
+          <ion-select-option value="todos">todos</ion-select-option>
+          <ion-select-option value="usuario">usuario</ion-select-option>
+          <ion-select-option value="chofer">chofer</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let usuario of usuariosPaginados; let i = index">
+          <ion-label>
+            <h2>{{ (paginaActual - 1) * usuariosPorPagina + i + 1 }}. {{ usuario.nombre }}</h2>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="editarUsuario(i)">
+              <ion-icon name="pencil"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="delete(i)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+
+      <!--* Botones de paginación -->
+      <div class="pagination-buttons">
+        <ion-button (click)="previous()" [disabled]="paginaActual === 1">
+          Anterior
+        </ion-button>
+        <ion-button (click)="next()" [disabled]="paginaActual === totalPaginas">
+          Siguiente
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

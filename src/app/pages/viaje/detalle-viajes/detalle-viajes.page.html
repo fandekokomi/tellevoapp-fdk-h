@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/historial-viajes"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Detalle del Viaje</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content *ngIf="viaje">
+    <ion-card>
+      <!-- <img [src]="viaje.imagen" *ngIf="viaje.imagen" alt="Imagen del viaje"> -->
+  
+      <ion-card-header>
+        <ion-card-title>test</ion-card-title>
+      </ion-card-header>
+  
+      <ion-card-content>
+        <p><strong>Origen:</strong> {{ viaje.origen }}</p>
+        <p><strong>Destino:</strong> {{ viaje.destino }}</p>
+        <p><strong>Coordenadas del Origen:</strong> {{ viaje.origenCoords.lat }}, {{ viaje.origenCoords.lng }}</p>
+        <p><strong>Coordenadas del Destino:</strong> {{ viaje.destinoCoords.lat }}, {{ viaje.destinoCoords.lng }}</p>
+        <p><strong>Cantidad de Personas:</strong> {{ viaje.cantidadPersonas }}</p>
+      </ion-card-content>
+  
+      <ion-button expand="full" color="primary" (click)="repetirViaje()">
+        Repetir Viaje
+      </ion-button>
+      <ion-button expand="full" color="danger" (click)="eliminarViaje()">
+        Eliminar Viaje
+      </ion-button>
+    </ion-card>
+  </ion-content>  

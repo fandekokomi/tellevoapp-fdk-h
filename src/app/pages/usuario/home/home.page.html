@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/logo.png" alt="logo tellevoapp" style="height: 40px" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Main Content -->
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <img alt="Silhouette of mountains" src="assets/test1.png" />
+    <ion-card-header>
+      <ion-card-title>Bienvenido, {{ usuarioNombre }} </ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <b>¡Te damos la bienvenida a TeLlevoApp!</b>
+    </ion-card-content>
+    <ion-card-content>
+      <p>Descubre todas las funcionalidades importantes para ti, como tu mapa de viaje, tu historial de viaje, y más</p>
+    </ion-card-content>
+
+    <!-- Menu Buttons -->
+    <ion-button expand="full" [routerLink]="['/mapa']">
+      <ion-icon name="map" slot="start"></ion-icon>
+      Mapa
+    </ion-button>
+    <ion-button expand="full" [routerLink]="['/perfil']">
+      <ion-icon name="person-circle" slot="start"></ion-icon>
+      Perfil
+    </ion-button>
+    <ion-button expand="full" (click)="logout()">
+      <ion-icon name="log-out" slot="start"></ion-icon>
+      Cerrar Sesión
+    </ion-button>
+  </ion-card>
+</ion-content>

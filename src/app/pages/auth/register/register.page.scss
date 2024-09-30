@@ -1,0 +1,71 @@
+ion-content::part(scroll) {
+    left: unset !important;
+    right: unset !important;
+    top: unset !important;
+    bottom: unset !important;
+    padding-inline-start: unset !important;
+    padding-inline-end: unset !important;
+    padding-top: unset !important;
+    padding-bottom: unset !important;
+    position: unset !important;
+    color: unset !important;
+    box-sizing: unset !important;
+    overflow: unset !important;
+    touch-action: unset !important;
+}
+
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; //* Asegura que el contenido ocupe toda la altura de la pantalla
+  padding: 1rem; //* Añade espacio alrededor del contenido
+  box-sizing: border-box;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column; //* Organiza los elementos en columna
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px; //* Limita el ancho máximo para evitar estiramientos excesivos
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.register-card {
+  width: 100%;
+  padding: 1rem; //* Añade padding interno al card
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; //* Centra el contenido del card
+}
+
+.register-logo {
+  width: 50%; //* Controla el tamaño del logo para que no desborde el contenedor
+  max-width: 150px; //* Limita el tamaño máximo del logo
+  margin: 0 auto 1rem auto; //* Centra el logo y añade margen inferior
+  display: block; //* Asegura que el logo sea un elemento de bloque para centrado
+}
+
+input,
+button {
+  width: 100%; //* Asegura que los inputs y botones ocupen todo el ancho disponible
+  max-width: 100%;
+  margin: 0.5rem 0; //* Añade espacio entre los elementos
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.registerbtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}

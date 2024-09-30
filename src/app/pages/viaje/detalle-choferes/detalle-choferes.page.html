@@ -1,0 +1,31 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--* Este ion-buttons contiene el botón para volver hacia atrás; copiar y pegar en todas las páginas donde se necesite -->
+    <ion-buttons slot="start">
+      <ion-back-button>
+
+      </ion-back-button>
+    </ion-buttons>
+    <!--* Fin del ion-buttons -->
+    <ion-title>Detalle de viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let aux of choferes">
+      <ion-avatar>
+        <img [src]="aux.imagenChofer" alt="chofer"> 
+      </ion-avatar>
+     <ion-label>
+      <!--* Los elementos se muestran igual que en Django, entre {{  }} -->
+      <h2>{{ aux.nombreChofer }}</h2>
+      <p>Puntuación: {{ aux.puntuacionChofer }}</p>
+      <p>Precio: {{ aux.precioViaje }}</p>
+      <p>Modelo: {{ aux.modeloAuto }}</p>
+      <p>Patente: {{ aux.patenteAuto }}</p>
+      <p>Destino: {{ aux.destino }}</p>
+     </ion-label>
+    </ion-item>
+   </ion-list>
+</ion-content>

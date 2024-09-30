@@ -1,0 +1,17 @@
+.card-usuarios {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; //* Centrar horizontalmente
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); //* Centrar vertical y horizontalmente
+    width: 90%; //* Ajustar el ancho si es necesario.
+    max-width: 400px; //* Limita el ancho en pantallas más grandes
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    background-color: #333; //* Color de fondo que combina con el diseño
+    border-radius: 10px;
+  }

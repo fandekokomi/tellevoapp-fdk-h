@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/logo.png" alt="logo tellevoapp" style="height: 40px" />
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-y="false">
+  <div class="register-container">
+    <ion-card class="register-card">
+      <img alt="Logo" src="assets/logo.png" class="register-logo" />
+      <ion-card-content [formGroup]="registerForm">
+        <h2 class="register-title">Registrarse</h2>
+        
+        <!--* Nombre de usuario -->
+        <ion-item>
+          <ion-icon name="person-outline" slot="start"></ion-icon>
+          <ion-input formControlName="nombre" placeholder="Nombre de Usuario"></ion-input>
+        </ion-item>
+
+        <!--* Correo -->
+        <ion-item>
+          <ion-icon name="mail-outline" slot="start"></ion-icon>
+          <ion-input formControlName="email" type="email" placeholder="Correo"></ion-input>
+        </ion-item>
+
+        <!--* Contraseña -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input formControlName="pass" type="password" placeholder="Contraseña"></ion-input>
+        </ion-item>
+
+        <!--* Verificar contraseña -->
+        <ion-item>
+          <ion-icon name="lock-closed-outline" slot="start"></ion-icon>
+          <ion-input formControlName="verificarPass" type="password" placeholder="Verificar Contraseña"></ion-input>
+        </ion-item>
+
+        <div class="registerbtn">
+          <ion-button expand="block" shape="round" (click)="registrarse()" id="present-alert">
+            Registrarse
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
