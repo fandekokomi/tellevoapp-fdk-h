@@ -63,7 +63,11 @@ const routes: Routes = [
     path: 'administracion-viajes',
     loadChildren: () => import('./pages/admin/administracion-viajes/administracion-viajes.module').then( m => m.AdministracionViajesPageModule),
     canActivate: [adminGuard]  //* Protegido por el adminGuard en caso de que el usuario no sea administrador
+  },  {
+    path: 'agregar-chofer',
+    loadChildren: () => import('./pages/chofer/agregar-chofer/agregar-chofer.module').then( m => m.AgregarChoferPageModule)
   },
+
 
 
 
