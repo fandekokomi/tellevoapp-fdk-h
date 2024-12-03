@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/logo.png" alt="logo tellevoapp" style="height: 40px" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--* Mapa -->
+  <div id="mapa"></div>
+  
+    <!-- Botón de finalizar, visible solo si el usuario es "chofer" -->
+    <div id="search-container" *ngIf="tipoUsuario === 'chofer'">
+      <ion-button (click)="finalizarViaje()">FINALIZAR VIAJE</ion-button>
+    </div>
+</ion-content>

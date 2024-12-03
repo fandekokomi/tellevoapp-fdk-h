@@ -1,0 +1,44 @@
+/* Ajustes para la tarjeta */
+.card-viajes {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Ajustes para el contenido */
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+/* Estilo de cada viaje */
+.viaje-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding: 4px 0; /* Ajusta el padding para reducir espacio extra */
+}
+
+/* Estilo del texto dentro del item */
+.viaje-label {
+    margin: 0; /* Elimina el margen para evitar desalineación */
+    font-size: 16px;
+}
+
+/* Ajustes para el botón "Unirse" */
+.card-viajes ion-button {
+    margin-left: auto;
+    --padding-start: 8px;
+    --padding-end: 8px;
+    --font-size: 14px;
+}

@@ -1,0 +1,98 @@
+ion-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center; //* Centra la tarjeta horizontalmente
+  align-items: center; //* Centra la tarjeta verticalmente
+  height: 100%; //* Asegura que ocupe el 100% de la altura de la pantalla
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px; //* Define el ancho máximo de la tarjeta
+  padding: 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.login-logo {
+  width: 80%;
+  max-width: 150px;
+  margin: 0 auto 1rem auto;
+  display: block;
+}
+
+input,
+button {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.ingresarbtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.forgot-password{
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin-top: 1rem;
+  text-decoration-line: underline;
+}
+
+.register-link {
+  cursor: pointer;
+  text-align: center;
+  display: inline;
+  margin-top: 1rem;
+  text-decoration-line: underline;
+}
+
+.register-container {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.register-container ion-text {
+  white-space: nowrap; //* Evita que se rompa la línea
+}
+
+.github-btn {
+  display: flex; /* Usamos flexbox */
+  align-items: center; /* Alineamos verticalmente al centro */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  font-size: 18px; /* Ajusta el tamaño de la fuente según lo necesites */
+  --background: #24292e;
+  color: white;
+}
+
+.github-btn ion-icon {
+  margin-right: 8px; /* Espacio entre el icono y el texto */
+}
+
+@media (max-width: 375px) {
+  .login-card {
+    padding: 0.5rem;
+  }
+}

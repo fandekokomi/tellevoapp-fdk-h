@@ -1,0 +1,19 @@
+.user-card, .contenido_card {
+    margin: 16px; //* Espaciado alrededor de la tarjeta
+    padding: 16px; //* Espaciado interno
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); //* Sombra sutil para dar profundidad
+    border-radius: 10px; //* Bordes redondeados
+  }
+  
+  .profile-icon {
+    display: block; //* Hacer que el icono se centre
+    margin: 0 auto 16px; //* Margen inferior para separar del texto
+  }
+  
+  h2 {
+    margin: 0; //* Sin margen para h2
+  }
+  
+  ion-button {
+    margin: 8px 0; //* Espaciado vertical para botones
+  }

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content>
+  <ion-card class="card-vehiculos">
+    <ion-card-header>
+      <ion-card-title>Lista de Vehiculos</ion-card-title>
+      <ion-button color="primary" (click)="abrirModalVehiculo()">
+        <ion-icon name="car"></ion-icon>
+        <ion-label>Añadir vehículo</ion-label>
+      </ion-button>
+    </ion-card-header>
+
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let vehiculo of vehiculos; let i = index">
+          <ion-label>
+            <h2>{{ (paginaActual - 1) * vehiculosPorPagina + i + 1 }}. {{ vehiculo.marca }}: {{vehiculo.modelo}}</h2>
+          </ion-label>
+          <ion-buttons slot="end">
+            <ion-button color="primary" (click)="editarVehiculo(i)">
+              <ion-icon name="pencil"></ion-icon>
+            </ion-button>
+            <ion-button color="danger" (click)="eliminarVehiculo(i)">
+              <ion-icon name="trash"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      </ion-list>
+
+      <!--* Botones de paginación -->
+      <div class="pagination-buttons">
+        <ion-button (click)="previous()" [disabled]="paginaActual === 1">
+          Anterior
+        </ion-button>
+        <ion-button (click)="next()" [disabled]="paginaActual === totalPaginas">
+          Siguiente
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

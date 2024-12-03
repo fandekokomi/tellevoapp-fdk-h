@@ -1,0 +1,38 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/logo.png" alt="logo tellevoapp" style="height: 40px" />
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!--* Tabs para la navegación dentro de perfil -->
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="detalles">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="historial-viajes">
+        <ion-icon name="time-outline"></ion-icon>
+        <ion-label>Historial de viajes</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="vehiculos" *ngIf="this.tipoUsuario === 'chofer'">
+        <ion-icon name="car-outline"></ion-icon>
+        <ion-label>Vehiculos</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+
+    <!--* Router-outlet secundario para manejar las tabs -->
+    <router-outlet></router-outlet>
+  </ion-tabs>
+</ion-content>

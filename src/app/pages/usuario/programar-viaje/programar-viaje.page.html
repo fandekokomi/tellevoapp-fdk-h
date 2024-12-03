@@ -1,0 +1,131 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="viajeForm">
+        <h2 class="form-title">Programar viaje</h2>
+
+        <!--* Campo para seleccionar un vehículo del conductor -->
+        <ion-item>
+          <ion-label>Selecciona tu vehículo</ion-label>
+          <ion-select formControlName="vehiculo" placeholder="Elige un vehículo">
+            <ion-select-option *ngFor="let vehiculo of vehiculos" [value]="vehiculo.uid">
+              {{ vehiculo.marca }} - {{ vehiculo.modelo }} ({{ vehiculo.matricula }})
+            </ion-select-option>
+          </ion-select>
+        </ion-item>
+        <ion-text color="danger" *ngIf="viajeForm.get('vehiculo')?.touched && viajeForm.get('vehiculo')?.hasError('required')">
+          El vehículo es requerido
+        </ion-text>
+
+        <!--* Campo para punto de origen -->
+        <ion-item>
+          <ion-input id="origenInput" formControlName="origen" type="text" placeholder="Punto de Origen"></ion-input>
+        </ion-item>
+
+        <!--* Lista de sugerencias para origen -->
+        <div id="autocomplete-suggestions-origen" class="suggestions hidden">
+          <ion-list>
+            <ion-item *ngFor="let suggestion of origenSuggestions" (click)="selectSuggestion(suggestion, 'origen')">
+              {{ suggestion.display_name }}
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <!--* Campo para punto de destino -->
+        <ion-item>
+          <ion-input id="destinationInput" formControlName="destino" type="text" placeholder="Punto de Destino"></ion-input>
+        </ion-item>
+
+        <!--* Lista de sugerencias para destino -->
+        <div id="autocomplete-suggestions-destination" class="suggestions hidden">
+          <ion-list>
+            <ion-item *ngFor="let suggestion of destinationSuggestions" (click)="selectSuggestion(suggestion, 'destination')">
+              {{ suggestion.display_name }}
+            </ion-item>
+          </ion-list>
+        </div>
+
+        <ion-button (click)="clearSearch()">
+          <ion-icon name="close-circle"></ion-icon>
+        </ion-button>
+
+        <!--* Campo para cantidad de personas -->
+        <ion-item>
+          <ion-input formControlName="cantidadPersonas" type="number" placeholder="Cantidad de personas" min="1" max="4"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="viajeForm.get('cantidadPersonas')?.touched && viajeForm.get('cantidadPersonas')?.hasError('min')">
+          Debe ser al menos 1 persona
+        </ion-text>
+        <ion-text color="danger" *ngIf="viajeForm.get('cantidadPersonas')?.touched && viajeForm.get('cantidadPersonas')?.hasError('max')">
+          Debe ser máximo 4 personas
+        </ion-text>
+
+        <!--* Campo para hora de salida -->
+        <ion-list>
+          <ion-item id="open-modal3">
+            <ion-label>Hora de salida</ion-label>
+            <ion-note slot="end">{{ viajeForm.get('horaSalida')?.value | date: 'HH:mm' }}</ion-note>
+          </ion-item>
+          <ion-modal trigger="open-modal3" [cssClass]="'bottom-end'">
+            <ng-template>
+              <ion-datetime
+                presentation="time"
+                formControlName="horaSalida"
+                size="cover"
+                [showDefaultButtons]="true"
+              ></ion-datetime>
+            </ng-template>
+          </ion-modal>
+          
+          <!-- Error message for time in the past -->
+          <ng-container *ngIf="viajeForm.get('horaSalida')?.hasError('timeInPast')">
+            <div class="error-message">La hora de salida no puede ser anterior a la hora actual.</div>
+          </ng-container>
+        </ion-list>
+
+
+        <!--* Botón para programar viaje -->
+        <ion-button expand="block" type="button" (click)="programarViaje()">Programar viaje</ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="hidden" id="qr-code">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>QR Del Viaje</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <div id="qrImg">
+          <qr-code [value]="valorQR"
+          size="300" 
+          errorCorrectionLevel="M" />
+        </div>
+
+         <ion-button (click)="captureScreen()" expand="block" class="ion-margin-top" *ngIf="valorQR">
+          Guardar QR
+          <ion-icon slot="end" name="download-outline"></ion-icon>
+         </ion-button>
+
+         <ion-button (click)="cerrarQR()" shape="round">
+          Cerrar
+         </ion-button>
+         
+         <ion-button expand="block" color="success" type="button" (click)="iniciarViaje()">
+          Iniciar viaje sin esperar personas
+        </ion-button>        
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

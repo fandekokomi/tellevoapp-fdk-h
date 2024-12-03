@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" class="ion-padding"> 
+  <div class="admin-home">
+    <ion-card class="admin-card" scroll="false">
+        <ion-card-header>
+          <ion-card-title>Bienvenido, {{adminusername}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Use el menú vertical para acceder a todas las páginas administrativas
+        </ion-card-content>
+      </ion-card>
+  </div>
+</ion-content>

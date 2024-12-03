@@ -1,0 +1,7 @@
+{
+  "name": "tellevoapp-fdk-h",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

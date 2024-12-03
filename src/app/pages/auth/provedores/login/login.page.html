@@ -1,0 +1,28 @@
+<ion-header [translucent]="true"></ion-header>
+
+<ion-content scroll-y="false">
+  <div class="login-container"> <!--* Contenedor principal responsivo -->
+    <ion-card class="login-card">
+      <img alt="Logo" src="assets/logo.png" class="login-logo" /> <!--* Añade una clase para control de estilo -->
+      <ion-card-content>
+        <h2 class="login-title">Iniciar sesión</h2>
+        
+        <ion-button expand="block" shape="round" class="github-btn" (click)="loginGit()">
+          <ion-icon name="logo-github"></ion-icon>
+          GitHub
+        </ion-button>
+
+        <ion-button expand="block" shape="round" class="google-btn" (click)="loginGoogle()">
+          <ion-icon name="logo-google"></ion-icon>
+          Google
+        </ion-button>
+
+        <div class="register-container">
+          <ion-text>
+            <a class="register-link" (click)="loginWithEmailAndPassword()">Iniciar sesión con correo/contraseña</a>
+          </ion-text>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

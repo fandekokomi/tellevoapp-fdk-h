@@ -1,0 +1,55 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <form [formGroup]="vehiculoForm">
+        <h2>Formulario para agregar vehículo</h2>
+
+        <!--* Campo para marca del vehículo -->
+        <ion-item>
+          <ion-icon name="car-outline" slot="start"></ion-icon>
+          <ion-input formControlName="marca" type="text" placeholder="Marca del vehículo"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="vehiculoForm.get('marca')?.touched && vehiculoForm.get('marca')?.hasError('required')">
+          La marca es requerida
+        </ion-text>
+
+        <!--* Campo para modelo del vehículo -->
+        <ion-item>
+          <ion-icon name="car-outline" slot="start"></ion-icon>
+          <ion-input formControlName="modelo" type="text" placeholder="Modelo del vehículo"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="vehiculoForm.get('modelo')?.touched && vehiculoForm.get('modelo')?.hasError('required')">
+          El modelo es requerido
+        </ion-text>
+
+        <!--* Campo para matrícula del vehículo -->
+        <ion-item>
+          <ion-icon name="key-outline" slot="start"></ion-icon>
+          <ion-input formControlName="matricula" type="text" placeholder="Matrícula"></ion-input>
+        </ion-item>
+        <ion-text color="danger" *ngIf="vehiculoForm.get('matricula')?.touched && vehiculoForm.get('matricula')?.hasError('required')">
+          La matrícula es requerida
+        </ion-text>
+
+        <!--* Campo para color del vehículo -->
+        <ion-item>
+          <ion-icon name="color-palette-outline" slot="start"></ion-icon>
+          <ion-input formControlName="color" type="text" placeholder="Color del vehículo"></ion-input>
+        </ion-item>
+
+        <!--* Botón para agregar vehículo -->
+        <ion-button expand="block" type="button" (click)="agregarVehiculo()" id="present-alert">
+          Agregar vehículo
+        </ion-button>
+      </form>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

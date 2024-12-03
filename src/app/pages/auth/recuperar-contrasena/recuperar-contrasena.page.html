@@ -1,0 +1,35 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <!--* Este ion-buttons contiene el botón para volver hacia atrás; copiar y pegar en todas las páginas donde se necesite -->
+    <ion-buttons slot="start">
+      <ion-back-button>
+
+      </ion-back-button>
+    </ion-buttons>
+    <!--* Fin del ion-buttons -->
+    <ion-title>Restablecer contraseña</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="login-background">
+  <ion-card class="login-card">
+    <ion-card-content [formGroup]="fpassForm">
+      <h2 class="login-title">Restablecer contraseña</h2>
+      <ion-item>
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-input formControlName="email" type="email" placeholder="Correo"></ion-input>
+      </ion-item>
+      <ion-text position="stacked" color="danger" *ngIf="fpassForm.get('email')?.touched && fpassForm.get('email')?.hasError('required')">
+        El correo es requerido
+      </ion-text>
+      <ion-text position="stacked" color="danger" *ngIf="fpassForm.get('email')?.touched && fpassForm.get('email')?.hasError('email')">
+        El correo es inválido
+      </ion-text>
+      <div class="center-content">
+        <ion-button expand="block" shape="round" (click)="recoveryEmail()" id="present-alert">
+          RECUPERAR
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

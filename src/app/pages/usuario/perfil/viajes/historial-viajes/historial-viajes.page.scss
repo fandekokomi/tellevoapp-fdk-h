@@ -1,0 +1,17 @@
+.card-label {
+  flex: 1; //* Permite que la etiqueta ocupe el espacio disponible
+}
+
+//* Estilos para ion-item
+ion-item {
+  display: flex; //* Usar flexbox para alinear los elementos
+  justify-content: space-between; //* Espacio entre el label y el botón
+  align-items: center; //* Centrar verticalmente
+}
+
+//* Estilos del botón
+ion-button {
+  --padding-start: 0; //* Eliminar padding en la izquierda
+  --padding-end: 0; //* Eliminar padding en la derecha
+  width: auto; //* Asegura que el botón no ocupe todo el espacio
+}

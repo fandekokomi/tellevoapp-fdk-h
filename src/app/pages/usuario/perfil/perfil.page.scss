@@ -1,0 +1,31 @@
+/*
+  ! Estilos para el ion-tab-bar
+*/
+ion-tab-bar {
+  --color-selected: var(--ion-color-primary); //* Color del texto e icono del tab seleccionado
+  --color: #606060; //* Color del texto e icono de los tabs no seleccionados
+}
+
+ion-tab-button {
+  text-transform: none;
+
+  ion-icon {
+    font-size: 22px; //* Tamaño del icono
+    color: var(--color); //* Color para iconos no seleccionados
+  }
+
+  ion-label {
+    font-size: 14px; //* Tamaño del texto del tab
+    color: var(--color); //* Color para texto no seleccionado
+  }
+
+  &.tab-selected { //* Estilos para el tab seleccionado
+    ion-icon {
+      color: var(--color-selected); //* Color para icono seleccionado
+    }
+
+    ion-label {
+      color: var(--color-selected); //* Color para texto seleccionado
+    }
+  }
+}

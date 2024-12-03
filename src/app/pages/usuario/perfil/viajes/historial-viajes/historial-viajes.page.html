@@ -1,0 +1,15 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <!--* Se itera sobre los viajes y se coloca cada uno en una tarjeta -->
+    <ion-card *ngFor="let aux of viajes">
+      <ion-item (click)="verDetalleViaje(aux)" detail="true">
+        <ion-label class="card-label">
+          <h2>{{ aux.origen }} - {{ aux.destino }}</h2>
+        </ion-label>
+      </ion-item>
+    </ion-card>
+  </ion-list>
+</ion-content>

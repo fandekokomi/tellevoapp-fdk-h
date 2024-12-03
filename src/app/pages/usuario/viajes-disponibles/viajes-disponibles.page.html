@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-card class="card-viajes">
+    <ion-card-header>
+      <ion-card-title>Viajes disponibles</ion-card-title>
+      <ion-item>
+        <ion-label>Filtrar por destino</ion-label>
+        <input type="text" [(ngModel)]="filtroDestino" (ngModelChange)="filtrarPorDestino()" placeholder="Filtrar por destino" />
+      </ion-item>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let viaje of viajesFiltrados; let i = index" class="viaje-item" detail="true" (click)="unirseAlViaje(viaje)">
+          <ion-label class="viaje-label">
+            {{ (paginaActual - 1) * viajesPorPagina + i + 1 }}. De {{ viaje.origen }}, hacia {{ viaje.destino }}
+          </ion-label>
+        </ion-item>        
+      </ion-list>
+
+      <!--* Botones de paginación -->
+      <div class="pagination-buttons">
+        <ion-button (click)="previous()" [disabled]="paginaActual === 1">
+          Anterior
+        </ion-button>
+        <ion-button (click)="next()" [disabled]="paginaActual === totalPaginas">
+          Siguiente
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

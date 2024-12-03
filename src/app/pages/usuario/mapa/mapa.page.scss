@@ -1,0 +1,16 @@
+#mapa {
+  height: 100%; /* Ocupa toda la altura de la pantalla */
+  width: 100%;
+  position: relative;
+}
+
+#search-container {
+  position: absolute;
+  z-index: 1000; /* Sobre el mapa */
+  top: 2%; /* Posición desde la parte superior */
+  left: 10%;
+  transform: translateX(-50%);
+  padding: 10px;
+  box-shadow: none;
+  border-radius: 0px;
+}

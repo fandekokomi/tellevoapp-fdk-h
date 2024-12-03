@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Editar Viaje</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="cancelar()">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="guardar()">
+    <ion-item>
+      <ion-label position="floating">UID</ion-label>
+      <ion-input formControlName="uid" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Vehículo UID</ion-label>
+      <ion-input formControlName="vehiculoUID" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Origen</ion-label>
+      <ion-input formControlName="origen" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input formControlName="destino" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Cantidad de Personas</ion-label>
+      <ion-input type="number" formControlName="cantidadPersonas" min="1" max="4"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Hora de Salida</ion-label>
+      <ion-datetime formControlName="horaSalida"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Estado del viaje</ion-label>
+      <ion-input type="text" formControlName="estado"></ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit">Guardar</ion-button>
+  </form>
+</ion-content>
